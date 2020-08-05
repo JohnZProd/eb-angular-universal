@@ -1,12 +1,14 @@
 # Angular Universal on EB
 
-This walkthrough will provide a summary of deploying a sample Angular Universal application onto AWS Elastic Beanstalk
+This walkthrough will provide a summary of deploying a sample Angular Universal application onto AWS Elastic Beanstalk using an Amazon Linux 1 environment.
 
 For this example, my local environment was running Ubuntu 18.04 LTS
 
 We've also created an Elastic Beanstalk environment named 'angular-app-env' under the Application named 'angular-app'
 
 ## Setting Up Local Environment
+
+### Step-by-Step
 
 Install the necessary packages into the local environment (unzip, pip, and awsebcli)
 
@@ -71,7 +73,7 @@ Alternatively, you can run
 sh build.sh
 ```
 
-#### Option A - Deploy Entire Bundle
+### Option A - Deploy Entire Bundle
 
 If you do not want to make any changes to the code, you will need to deploy the entire bundle for your application to work on Elastic Beanstalk (i.e. the root folder is ~/universal/)
 
@@ -90,7 +92,7 @@ eb init angular-app -r ap-southeast-2
 eb deploy angular-app-env
 ```
 
-#### Option B - Deploy dist/ Folder 
+### Option B - Deploy dist/ Folder 
 
 Edit the following a file named node-config.config into .ebextensions with the content
 
@@ -116,7 +118,3 @@ eb init angular-app -r ap-southeast-2
 eb deploy angular-app-env
 ```
 
-
-## Troubleshooting
-
-Failed to lookup view "index" in views directory "/var/app/current/dist/browser"
